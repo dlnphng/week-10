@@ -1,0 +1,29 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300,
+    "height": 200,
+    "data": {
+      "url": "https://raw.githubusercontent.com/dlnphng/week-10/main/data/Exploration.csv"
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "axis": {"title": "Year"}
+      },
+      "y": {
+        "field": "value",
+        "type": "quantitative",
+        "aggregate": "sum",
+        "axis": {"title": "Sum of Values"}
+      },
+      "color": {
+        "field": "series",
+        "type": "nominal",
+        "scale": {"scheme": "category20b"},
+        "legend": {"title": "Regions"}
+      }
+    }
+  }
+  
