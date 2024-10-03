@@ -3,7 +3,7 @@
     "width": 600,
     "height": 400,
     "data": {
-      "url": "https://raw.githubusercontent.com/dlnphng/week-10/main/data/Exploration copy.csv"
+      "url": "https://raw.githubusercontent.com/dlnphng/week-10/main/data/Exploration-copy.csv"
     },
     "mark": "bar",
     "encoding": {
