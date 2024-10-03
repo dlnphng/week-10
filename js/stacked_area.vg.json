@@ -1,29 +1,44 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 600,
-    "height": 400,
-    "data": {
-      "url": "https://raw.githubusercontent.com/dlnphng/week-10/main/data/Exploration-copy.csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/dlnphng/week-10/main/data/StateMining.csv"
+  },
+  "transform": [
+    {
+      "fold": [
+        "NSW",
+        "VIC",
+        "QLD",
+        "SA",
+        "WA",
+        "TAS",
+        "Northern Territory"
+      ],
+      "as": ["series", "value"]
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "axis": {"title": "Year"}
     },
-    "mark": "bar",
-    "encoding": {
-      "x": {
-        "field": "Year",
-        "type": "ordinal",
-        "axis": {"title": "Year"}
-      },
-      "y": {
-        "field": "value",
-        "type": "quantitative",
-        "aggregate": "sum",
-        "axis": {"title": "Total deposit ($ million)"}
-      },
-      "color": {
-        "field": "series",
-        "type": "nominal",
-        "scale": {"scheme": "category20b"},
-        "legend": {"title": "Regions"}
-      }
+    "y": {
+      "field": "Total",
+      "type": "quantitative",
+      "aggregate": "sum",
+      "axis": {"title": "Total deposit ($ million)"}
+    },
+    "color": {
+      "field": "State",
+      "type": "nominal",
+      "scale": {"scheme": "category20b"},
+      "legend": {"title": "Regions"}
     }
   }
+}
+
   
