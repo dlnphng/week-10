@@ -5,40 +5,85 @@
   "data": {
     "url": "https://raw.githubusercontent.com/dlnphng/week-10/main/data/StateMining.csv"
   },
-  "transform": [
+  "params": [
     {
-      "fold": [
-        "NSW",
-        "VIC",
-        "QLD",
-        "SA",
-        "WA",
-        "TAS",
-        "Northern Territory"
-      ],
-      "as": ["series", "value"]
+      "name": "stateFilter",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "WA",
+          "QLD",
+          "NSW",
+          "VIC",
+          "SA",
+          "TAS",
+          "Northen Territory"
+        ],
+        "name": "Select State: "
+      }
     }
   ],
-  "mark": "bar",
-  "encoding": {
-    "x": {
-      "field": "Year",
-      "type": "ordinal",
-      "axis": {"title": "Year"}
-    },
-    "y": {
-      "field": "Total",
-      "type": "quantitative",
-      "aggregate": "sum",
-      "axis": {"title": "Total deposit ($ million)"}
-    },
-    "color": {
-      "field": "State",
-      "type": "nominal",
-      "scale": {"scheme": "category20b"},
-      "legend": {"title": "Regions"}
+  "transform": [
+    {
+      "filter": "stateFilter === 'All' ? true : datum.State === stateFilter"
     }
-  }
+  ],
+  "layer": [
+    {
+      "mark": "area",
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "temporal",
+          "axis": { "title": "Year" }
+        },
+        "y": {
+          "field": "Total",
+          "type": "quantitative",
+          "aggregate": "sum",
+          "stack": "zero",
+          "axis": { "title": "Total deposit ($ million)" }
+        },
+        "color": {
+          "field": "State",
+          "type": "nominal",
+          "scale": {
+            "domain": ["WA", "QLD", "NSW", "VIC", "SA", "TAS", "Northen Territory"],
+            "range": [
+              "#1f77b4", 
+              "#ff7f0e",  
+              "#aec7e8",  
+              "#ffbb78",  
+              "#5DA5DA", 
+              "#FAA43A",  
+              "#08306b"   
+            ]
+          },
+          "legend": {
+            "title": "Regions",
+            "orient": "right",
+            "labelFontSize": 12,
+            "titleFontSize": 14
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Year",
+            "type": "temporal",
+            "title": "Year",
+            "timeUnit": "year"
+          },
+          {
+            "field": "Total",
+            "type": "quantitative",
+            "title": "Total deposit ($ million)"
+          },
+          { "field": "State", "type": "nominal", "title": "State" }
+        ]
+      }
+    }
+  ]
 }
 
-  

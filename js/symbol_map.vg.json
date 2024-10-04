@@ -1,0 +1,153 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1150,
+  "height": 600,
+  "title": "Top Global Exporters and Importers of Ore and Metals 2023",
+  "projection": {
+    "type": "equalEarth"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/dlnphng/week9/main/js/ne_110m_admin_0_countries.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightgray",
+        "stroke": "white"
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "oceans"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightblue"
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/WorldMapWithGraticules.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_graticules_30"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "darkgray"
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/dlnphng/week-10/main/data/Country.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.Year == year"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "circle",
+            "stroke": "black",  
+            "strokeWidth": 1.4,
+            "tooltip": true
+          },
+          "encoding": {
+            "longitude": {
+              "field": "longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "latitude",
+              "type": "quantitative"
+            },
+            "size": {
+              "field": "Percentage of Total Ore and Metal Revenue (%)",
+              "type": "quantitative",
+              "title": "% of Total Ore and Metal Revenue",
+              "scale": {
+                "domain": [0, 100],
+                "range": [0, 8000]
+              }
+            },
+            "color": {
+              "field": "Type",
+              "type": "nominal",
+              "title": "Revenue Type (Export/Import)",
+              "scale": {
+                "domain": ["Export", "Import"],
+                "range": ["#FF6600", "#0066CC"]
+              }
+            },
+            "tooltip": [
+              {"field": "Country Name", "type": "nominal", "title": "Country"},
+              {"field": "Revenue (billion $)", "type": "quantitative", "title": "Revenue (billion $)"},
+              {"field": "Type", "type": "nominal", "title": "Type"},
+              {"field": "Percentage of Total Ore and Metal Revenue (%)", "type": "quantitative", "title": "% of Total World Revenue"}
+            ]
+          }
+        },
+        {
+          "transform": [
+            {
+              "calculate": "-sqrt(datum['Percentage of Total Ore and Metal Revenue (%)']) / 2 - 10",
+              "as": "text_dy"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "center",
+            "fontSize": 10,
+            "fontWeight": "bold",
+            "color": "black"
+          },
+          "encoding": {
+            "longitude": {
+              "field": "longitude",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "latitude",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "Percentage of Total Ore and Metal Revenue (%)",
+              "type": "quantitative",
+              "format": ".1f"
+            },
+            "dy": {
+              "field": "text_dy",
+              "type": "quantitative"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "params": [
+    {
+      "name": "year",
+      "value": 2023,
+      "bind": {
+        "input": "range",
+        "min": 2019,
+        "max": 2023,
+        "step": 1,
+        "name": "Year"
+      }
+    }
+  ]
+}
