@@ -50,7 +50,15 @@
           "field": "State",
           "type": "nominal",
           "scale": {
-            "domain": ["WA", "QLD", "NSW", "VIC", "SA", "TAS", "Northen Territory"],
+            "domain": [
+              "WA",
+              "QLD",
+              "NSW",
+              "VIC",
+              "SA",
+              "TAS",
+              "Northen Territory"
+            ],
             "range": [
               "#1f77b4",
               "#ff7f0e",
@@ -85,9 +93,7 @@
       }
     },
     {
-      "transform": [
-        { "filter": "stateFilter === 'All'" }
-      ],
+      "transform": [{ "filter": "stateFilter === 'All'" }],
       "mark": {
         "type": "text",
         "align": "left",
@@ -115,9 +121,7 @@
       }
     },
     {
-      "transform": [
-        { "filter": "stateFilter === 'All'" }
-      ],
+      "transform": [{ "filter": "stateFilter === 'All'" }],
       "mark": {
         "type": "text",
         "align": "left",
@@ -145,9 +149,7 @@
       }
     },
     {
-      "transform": [
-        { "filter": "stateFilter === 'All'" }
-      ],
+      "transform": [{ "filter": "stateFilter === 'All'" }],
       "mark": {
         "type": "text",
         "align": "left",
@@ -174,9 +176,7 @@
       }
     },
     {
-      "transform": [
-        { "filter": "stateFilter === 'All'" }
-      ],
+      "transform": [{ "filter": "stateFilter === 'All'" }],
       "mark": {
         "type": "text",
         "align": "left",
@@ -203,9 +203,7 @@
       }
     },
     {
-      "transform": [
-        { "filter": "stateFilter === 'WA'" }
-      ],
+      "transform": [{ "filter": "stateFilter === 'WA'" }],
       "mark": {
         "type": "text",
         "align": "left",
@@ -231,14 +229,90 @@
       }
     },
     {
-      "transform": [
-        { "filter": "stateFilter === 'QLD'" }
-      ],
+      "transform": [{ "filter": "stateFilter === 'NSW'" }],
       "mark": {
         "type": "text",
         "align": "left",
         "baseline": "top",
-        "dx": 170,
+        "dx": 400,
+        "dy": 0,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#718195"
+      },
+      "encoding": {
+        "x": {
+          "datum": "2013-01-01T00:00:00Z",
+          "type": "temporal"
+        },
+        "y": {
+          "datum": 470,
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "NSW has limited long-term growth"
+        }
+      }
+    },
+    {
+      "transform": [{ "filter": "stateFilter === 'SA'" }],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": 450,
+        "dy": 0,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#5DA5DA"
+      },
+      "encoding": {
+        "x": {
+          "datum": "2013-01-01T00:00:00Z",
+          "type": "temporal"
+        },
+        "y": {
+          "datum": 350,
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "SA shows consistentcy"
+        }
+      }
+    },
+    {
+      "transform": [{ "filter": "stateFilter === 'VIC'" }],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": 430,
+        "dy": 0,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#ad8052"
+      },
+      "encoding": {
+        "x": {
+          "datum": "2013-01-01T00:00:00Z",
+          "type": "temporal"
+        },
+        "y": {
+          "datum": 350,
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "VIC remains relatively small"
+        }
+      }
+    },
+    {
+      "transform": [{ "filter": "stateFilter === 'TAS'" }],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": 385,
         "dy": 0,
         "fontSize": 12,
         "fontWeight": "bold",
@@ -250,11 +324,63 @@
           "type": "temporal"
         },
         "y": {
-          "datum": 590,
+          "datum": 150,
           "type": "quantitative"
         },
         "text": {
-          "value": "Coal-rich QLD contributes steadily to exports"
+          "value": "TAS steady but smallest production"
+        }
+      }
+    },
+    {
+      "transform": [{ "filter": "stateFilter === 'Northen Territory'" }],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": 370,
+        "dy": 0,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#08306b"
+      },
+      "encoding": {
+        "x": {
+          "datum": "2013-01-01T00:00:00Z",
+          "type": "temporal"
+        },
+        "y": {
+          "datum": 380,
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "NT has rising production, but still small"
+        }
+      }
+    },
+    {
+      "transform": [{ "filter": "stateFilter === 'QLD'" }],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": 395,
+        "dy": 0,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#ff7f0e"
+      },
+      "encoding": {
+        "x": {
+          "datum": "2013-01-01T00:00:00Z",
+          "type": "temporal"
+        },
+        "y": {
+          "datum": 670,
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "Queensland is second highest lead"
         }
       }
     }
