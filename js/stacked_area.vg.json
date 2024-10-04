@@ -52,13 +52,13 @@
           "scale": {
             "domain": ["WA", "QLD", "NSW", "VIC", "SA", "TAS", "Northen Territory"],
             "range": [
-              "#1f77b4", 
-              "#ff7f0e",  
-              "#aec7e8",  
-              "#ffbb78",  
-              "#5DA5DA", 
-              "#FAA43A",  
-              "#08306b"   
+              "#1f77b4",
+              "#ff7f0e",
+              "#aec7e8",
+              "#ffbb78",
+              "#5DA5DA",
+              "#FAA43A",
+              "#08306b"
             ]
           },
           "legend": {
@@ -83,7 +83,180 @@
           { "field": "State", "type": "nominal", "title": "State" }
         ]
       }
+    },
+    {
+      "transform": [
+        { "filter": "stateFilter === 'All'" }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": 10,
+        "dy": -10,
+        "yOffset": -20,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "black",
+        "angle": 27
+      },
+      "encoding": {
+        "x": {
+          "datum": "2013-01-01T00:00:00Z",
+          "type": "temporal"
+        },
+        "y": {
+          "datum": 2500,
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "Major decline due to fall of demand"
+        }
+      }
+    },
+    {
+      "transform": [
+        { "filter": "stateFilter === 'All'" }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": 0,
+        "dy": -10,
+        "yOffset": -20,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "black",
+        "angle": 27
+      },
+      "encoding": {
+        "x": {
+          "datum": "2013-01-01T00:00:00Z",
+          "type": "temporal"
+        },
+        "y": {
+          "datum": 2300,
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "------------------------------------------------>"
+        }
+      }
+    },
+    {
+      "transform": [
+        { "filter": "stateFilter === 'All'" }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": 130,
+        "dy": 140,
+        "fontSize": 15,
+        "fontWeight": "bold",
+        "color": "black",
+        "angle": -32
+      },
+      "encoding": {
+        "x": {
+          "datum": "2016-01-01T00:00:00Z",
+          "type": "temporal"
+        },
+        "y": {
+          "datum": 2300,
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "------------------------------------------------------------------------->"
+        }
+      }
+    },
+    {
+      "transform": [
+        { "filter": "stateFilter === 'All'" }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": 140,
+        "dy": 130,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "black",
+        "angle": -32
+      },
+      "encoding": {
+        "x": {
+          "datum": "2016-01-01T00:00:00Z",
+          "type": "temporal"
+        },
+        "y": {
+          "datum": 2300,
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "Rise consistenly after efforts of improvement in efficiency"
+        }
+      }
+    },
+    {
+      "transform": [
+        { "filter": "stateFilter === 'WA'" }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": 330,
+        "dy": -60,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#1f77b4"
+      },
+      "encoding": {
+        "x": {
+          "datum": "2013-01-01T00:00:00Z",
+          "type": "temporal"
+        },
+        "y": {
+          "datum": 2300,
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "Western Australia leads in mineral production"
+        }
+      }
+    },
+    {
+      "transform": [
+        { "filter": "stateFilter === 'QLD'" }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": 170,
+        "dy": 0,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#ff7f0e"
+      },
+      "encoding": {
+        "x": {
+          "datum": "2013-01-01T00:00:00Z",
+          "type": "temporal"
+        },
+        "y": {
+          "datum": 590,
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "Coal-rich QLD contributes steadily to exports"
+        }
+      }
     }
   ]
 }
-
